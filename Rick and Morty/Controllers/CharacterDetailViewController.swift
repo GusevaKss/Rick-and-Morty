@@ -5,4 +5,7 @@
 //  Created by Kseniya Kovgorenya on 25.11.24.
 //
 
-import Foundation
+import UIKit
+
+class CharacterDetailViewController: UIViewController {
+}
