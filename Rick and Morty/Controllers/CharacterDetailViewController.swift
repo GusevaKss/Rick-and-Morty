@@ -16,7 +16,8 @@ class CharacterDetailViewController: UIViewController {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        //label.textAlignment = NSTextAlignment.left
         return label
     }()
     
@@ -58,7 +59,7 @@ class CharacterDetailViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         
         view.addSubview(imageView)
         view.addSubview(nameLabel)
@@ -70,8 +71,8 @@ class CharacterDetailViewController: UIViewController {
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 150),
-            imageView.heightAnchor.constraint(equalToConstant: 150),
+            imageView.widthAnchor.constraint(equalToConstant: 250),
+            imageView.heightAnchor.constraint(equalToConstant: 250),
             
             nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
             nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),

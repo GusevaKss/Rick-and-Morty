@@ -55,7 +55,7 @@ class CharacterListCell: UITableViewCell {
 
     func configure(with character: CharacterListItem) {
         nameLabel.text = character.name
-        characterImageView.loadImage(from: character.image)
+        characterImageView.loadImage(from: character.image ?? "N/A")
     }
 }
 
