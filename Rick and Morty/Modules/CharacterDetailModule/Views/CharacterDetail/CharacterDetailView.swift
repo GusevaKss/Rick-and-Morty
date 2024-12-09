@@ -69,7 +69,9 @@ class CharacterDetailView: UIView {
     }
 
     func configure(with character: CharacterDetail) {
-        imageView.loadImage(from: character.image ?? "Unknown")
+        let url = URL(string: character.image ?? "Unknown")
+        imageView.kf.setImage(with: url)
+        
         nameLabel.text = "Name: \(character.name ?? "Unknown")"
         statusLabel.text = "Status: \(character.status ?? "Unknown")"
         speciesLabel.text = "Species: \(character.species ?? "Unknown")"

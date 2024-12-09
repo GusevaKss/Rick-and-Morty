@@ -12,12 +12,22 @@ class CharacterDetailViewController: UIViewController {
     var characterID: Int?
     
     private var characterDetail: CharacterDetail?
+    private var network: CharactersNetworkProtocol = CharactersNetworkService()
+
+    init(characterID: Int, network: CharactersNetworkProtocol) {
+        self.characterID = characterID
+        self.network = network
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
-        //label.textAlignment = NSTextAlignment.left
         return label
     }()
     
@@ -94,7 +104,7 @@ class CharacterDetailViewController: UIViewController {
     private func fetchCharacterDetail() {
         guard let characterID = characterID else { return }
         
-        NetworkService.shared.fetchCharacterDetails(id: characterID) { [weak self] result in
+        network.fetchCharacterDetails(id: characterID) { [weak self] result in
             switch result {
             case .success(let characterDetail):
                 self?.characterDetail = characterDetail
@@ -117,19 +127,7 @@ class CharacterDetailViewController: UIViewController {
         locationLabel.text = "Location: \(character.location?.name ?? "N/A")"
         
         if let imageUrl = character.image, let url = URL(string: imageUrl) {
-            imageView.loadImage(from: url)
-        }
-    }
-}
-
-extension UIImageView {
-    func loadImage(from url: URL) {
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url) {
-                DispatchQueue.main.async {
-                    self.image = UIImage(data: data)
-                }
-            }
+            imageView.kf.setImage(with: url)
         }
     }
 }

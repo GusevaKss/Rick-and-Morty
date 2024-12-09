@@ -1,5 +1,5 @@
 //
-//  NetworkService.swift
+//  CharactersNetworkService.swift
 //  Rick and Morty
 //
 //  Created by Kseniya Kovgorenya on 25.11.24.
@@ -8,10 +8,12 @@
 import Foundation
 import Alamofire
 
-class NetworkService {
-    static let shared = NetworkService()
-    private init() {}
+protocol CharactersNetworkProtocol {
+    func fetchCharacterList(completion: @escaping (Result<[CharacterListItem], Error>) -> Void)
+    func fetchCharacterDetails(id: Int, completion: @escaping (Result<CharacterDetail, Error>) -> Void)
+}
 
+class CharactersNetworkService: CharactersNetworkProtocol {
     func fetchCharacterList(completion: @escaping (Result<[CharacterListItem], Error>) -> Void) {
         let url = "https://rickandmortyapi.com/api/character"
         AF.request(url)

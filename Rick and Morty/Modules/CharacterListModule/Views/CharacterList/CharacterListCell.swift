@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CharacterListCell: UITableViewCell {
     static let identifier = "CharacterListCell"
@@ -55,9 +56,12 @@ class CharacterListCell: UITableViewCell {
 
     func configure(with character: CharacterListItem) {
         nameLabel.text = character.name
-        characterImageView.loadImage(from: character.image ?? "N/A")
+        let url = URL(string: character.image ?? "")
+        characterImageView.kf.setImage(with: url)
     }
 }
+
+
 
 extension UIImageView {
     func loadImage(from urlString: String) {
