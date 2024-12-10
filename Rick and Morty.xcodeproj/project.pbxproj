@@ -89,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				F9C3953A2D048C5100928E6D /* Modules */,
-				F987B7792CF506350090ECBB /* Services */,
+				F987B7792CF506350090ECBB /* Networking */,
 				F9426A4A2CD011E1006297D4 /* AppDelegate.swift */,
 				F9426A4C2CD011E1006297D4 /* SceneDelegate.swift */,
 				F9426A532CD011E3006297D4 /* Assets.xcassets */,
@@ -105,12 +105,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F987B7792CF506350090ECBB /* Services */ = {
+		F987B7792CF506350090ECBB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				F987B77A2CF506570090ECBB /* CharactersNetworkService.swift */,
 			);
-			path = Services;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		F987B7812CF506B80090ECBB /* Views */ = {

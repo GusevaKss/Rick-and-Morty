@@ -10,7 +10,7 @@ import UIKit
 class CharacterListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private var characters = [CharacterListItem]()
-    private var network: CharactersNetworkProtocol = CharactersNetworkService()
+    private let network: CharactersNetworkProtocol
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -32,7 +32,7 @@ class CharacterListViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("CharacterDetailViewController loaded")
+        print("CharacterListViewController loaded")
         
         setupUI()
         fetchCharacterList()

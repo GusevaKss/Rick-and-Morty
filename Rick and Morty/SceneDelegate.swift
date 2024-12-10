@@ -23,15 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let characterListViewController = characterListAssembly.build()
         let navigationController = UINavigationController(rootViewController: characterListViewController)
         
-//        let characterListAssembly2 = CharacterListAssembly()
-//        let characterListViewController2 = characterListAssembly.build()
-//        let navigationController2 = UINavigationController(rootViewController: characterListViewController2)
-        
-        //        UITabBarController tabBarController = UITabBarController()
-        //        tabBarController.viewControllers = [navigationController, navigationController2]
-        
         window?.rootViewController = navigationController
-//        window?.rootViewController = tabBarController
 
         window?.makeKeyAndVisible()
         

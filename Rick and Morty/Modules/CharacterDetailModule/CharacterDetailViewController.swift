@@ -9,12 +9,12 @@ import UIKit
 
 class CharacterDetailViewController: UIViewController {
     
-    var characterID: Int?
+    let characterID: Int?
     
     private var characterDetail: CharacterDetail?
-    private var network: CharactersNetworkProtocol = CharactersNetworkService()
+    private let network: CharactersNetworkProtocol
 
-    init(characterID: Int, network: CharactersNetworkProtocol) {
+    init(characterID: Int, network: CharactersNetworkService) {
         self.characterID = characterID
         self.network = network
         super.init(nibName: nil, bundle: nil)
