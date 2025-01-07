@@ -18,16 +18,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         
-        let characterListAssembly = CharacterListAssembly()
-        let characterListViewController = characterListAssembly.build()
-        characterListViewController.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(systemName: "circle"), tag: 0)
-        let navigationController = UINavigationController(rootViewController: characterListViewController)
+        let characterListAssemblyFirst = CharacterListAssembly()
+        let characterListViewControllerFirst = characterListAssemblyFirst.build()
+        characterListViewControllerFirst.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(systemName: "circle.fill"), tag: 0)
+        let navigationControllerFirst = UINavigationController(rootViewController: characterListViewControllerFirst)
         
-        let secondViewController = UIViewController()
-        secondViewController.view.backgroundColor = .systemBackground
-        secondViewController.tabBarItem = UITabBarItem(title: "Second", image: UIImage(systemName: "circle.fill"), tag: 1)
+        let characterListAssemblySecond = CharacterListAssembly()
+        let characterListViewControllerSecond = characterListAssemblySecond.build()
+        characterListViewControllerSecond.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(systemName: "circle"), tag: 1)
+        let navigationControllerSecond = UINavigationController(rootViewController: characterListViewControllerSecond)
         
-        tabBarController.viewControllers = [navigationController, secondViewController]
+        tabBarController.viewControllers = [navigationControllerFirst, navigationControllerSecond]
         
         window?.rootViewController = tabBarController
         
