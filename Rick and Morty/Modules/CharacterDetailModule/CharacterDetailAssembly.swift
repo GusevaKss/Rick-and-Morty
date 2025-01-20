@@ -7,10 +7,17 @@
 
 import Foundation
 
+import Foundation
+
 class CharacterDetailAssembly {
-    func build(with characterID: Int) -> CharacterDetailViewController {
-        let networkService = CharactersNetworkService()
-        let characterDetailViewController = CharacterDetailViewController(characterID: characterID, network: networkService)
+    func build(with characterID: Int, forShow show: String) -> CharacterDetailViewController {
+        let networkService: CharactersNetworkProtocol
+        if show == "Adventure Time" {
+            networkService = CharactersNetworkServiceAdventureTime(show: show)
+        } else {
+            networkService = CharactersNetworkService(show: show)
+        }
+        let characterDetailViewController = CharacterDetailViewController(characterID: characterID, network: networkService as! CharactersNetworkService)
         
         return characterDetailViewController
     }

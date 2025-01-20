@@ -11,6 +11,7 @@ class CharacterListViewController: UIViewController, UITableViewDataSource, UITa
     
     private var characters = [CharacterListItem]()
     private let network: CharactersNetworkProtocol
+    private var showTitle: String
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -20,8 +21,9 @@ class CharacterListViewController: UIViewController, UITableViewDataSource, UITa
     }()
     
     
-    init(network: CharactersNetworkProtocol) {
+    init(network: CharactersNetworkProtocol, showTitle: String) {
         self.network = network
+        self.showTitle = showTitle
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -91,7 +93,7 @@ class CharacterListViewController: UIViewController, UITableViewDataSource, UITa
         let selectedCharacter = characters[indexPath.row]
         if let characterID = selectedCharacter.id {
             let assembly = CharacterDetailAssembly()
-            let detailViewController = assembly.build(with: characterID)
+            let detailViewController = assembly.build(with: characterID, forShow: showTitle)
             navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

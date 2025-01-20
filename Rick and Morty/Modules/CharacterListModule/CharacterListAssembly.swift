@@ -8,10 +8,16 @@
 import Foundation
 
 class CharacterListAssembly {
+    private let networkService: CharactersNetworkProtocol
+    private let showTitle: String
+    
+    init(networkService: CharactersNetworkProtocol, showTitle: String) {
+        self.networkService = networkService
+        self.showTitle = showTitle
+    }
+    
     func build() -> CharacterListViewController {
-        let networkService = CharactersNetworkService()
-        let characterListViewController = CharacterListViewController(network: networkService)
-        
+        let characterListViewController = CharacterListViewController(network: networkService, showTitle: showTitle)
         return characterListViewController
     }
 }

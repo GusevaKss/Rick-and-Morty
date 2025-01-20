@@ -18,14 +18,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBarController = UITabBarController()
         
-        let characterListAssemblyFirst = CharacterListAssembly()
+        let rickAndMortyNetworkService = CharactersNetworkService(show: "Rick and Morty")
+        let characterListAssemblyFirst = CharacterListAssembly(networkService: rickAndMortyNetworkService, showTitle: "Rick and Morty")
         let characterListViewControllerFirst = characterListAssemblyFirst.build()
-        characterListViewControllerFirst.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(systemName: "circle.fill"), tag: 0)
+        characterListViewControllerFirst.tabBarItem = UITabBarItem(
+            title: "Rick and Morty",
+            image: UIImage(systemName: "circle.fill"),
+            tag: 0
+        )
         let navigationControllerFirst = UINavigationController(rootViewController: characterListViewControllerFirst)
         
-        let characterListAssemblySecond = CharacterListAssembly()
+        let adventureTimeNetworkService = CharactersNetworkServiceAdventureTime(show: "Adventure time")
+        let characterListAssemblySecond = CharacterListAssembly(networkService: adventureTimeNetworkService, showTitle: "Adventure time")
         let characterListViewControllerSecond = characterListAssemblySecond.build()
-        characterListViewControllerSecond.tabBarItem = UITabBarItem(title: "Characters", image: UIImage(systemName: "circle"), tag: 1)
+        characterListViewControllerSecond.tabBarItem = UITabBarItem(
+            title: "Adventure Time",
+            image: UIImage(systemName: "circle"),
+            tag: 1
+        )
         let navigationControllerSecond = UINavigationController(rootViewController: characterListViewControllerSecond)
         
         tabBarController.viewControllers = [navigationControllerFirst, navigationControllerSecond]
