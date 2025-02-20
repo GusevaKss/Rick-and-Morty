@@ -10,12 +10,14 @@ import UIKit
 class CharacterDetailViewController: UIViewController {
     
     let characterID: Int?
+    let showTitle: String
     
     private var characterDetail: CharacterDetail?
     private let network: CharactersNetworkProtocol
-
-    init(characterID: Int, network: CharactersNetworkService) {
+    
+    init(characterID: Int, showTitle: String, network: CharactersNetworkService) {
         self.characterID = characterID
+        self.showTitle = showTitle
         self.network = network
         super.init(nibName: nil, bundle: nil)
     }

@@ -59,6 +59,7 @@ class CharacterListViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     private func fetchCharacterList() {
+        print("Fetching character list for: \(showTitle)")
         network.fetchCharacterList { [weak self] result in
             switch result {
             case .success(let characters):
@@ -90,11 +91,13 @@ class CharacterListViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        
         let selectedCharacter = characters[indexPath.row]
         if let characterID = selectedCharacter.id {
             let assembly = CharacterDetailAssembly()
             let detailViewController = assembly.build(with: characterID, forShow: showTitle)
             navigationController?.pushViewController(detailViewController, animated: true)
         }
+        print("Selected character: \(String(describing: selectedCharacter.name)), ID: \(String(describing: selectedCharacter.id)), Show: \(showTitle)")
     }
 }

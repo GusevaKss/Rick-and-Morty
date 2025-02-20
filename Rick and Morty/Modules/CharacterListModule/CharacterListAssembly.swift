@@ -14,6 +14,7 @@ class CharacterListAssembly {
     init(networkService: CharactersNetworkProtocol, showTitle: String) {
         self.networkService = networkService
         self.showTitle = showTitle
+        print("Creating CharacterList for \(showTitle) with \(type(of: networkService))")
     }
     
     func build() -> CharacterListViewController {

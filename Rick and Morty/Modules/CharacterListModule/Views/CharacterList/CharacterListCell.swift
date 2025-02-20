@@ -58,6 +58,7 @@ class CharacterListCell: UITableViewCell {
         nameLabel.text = character.name
         let url = URL(string: character.image ?? "")
         characterImageView.kf.setImage(with: url)
+        print("Displaying character: \(String(describing: character.name)), ID: \(String(describing: character.id))")
     }
 }
 

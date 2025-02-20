@@ -9,13 +9,13 @@ import Foundation
 import Alamofire
 
 class CharactersNetworkService: CharactersNetworkProtocol {
-    
+
     private let show: String
-    
+
     init(show: String) {
            self.show = show
        }
-    
+
     func fetchCharacterList(completion: @escaping (Result<[CharacterListItem], Error>) -> Void) {
         let url = "https://rickandmortyapi.com/api/character"
         AF.request(url)
@@ -29,7 +29,7 @@ class CharactersNetworkService: CharactersNetworkProtocol {
                 }
             }
     }
-    
+
     func fetchCharacterDetails(id: Int, completion: @escaping (Result<CharacterDetail, Error>) -> Void) {
         let url = "https://rickandmortyapi.com/api/character/\(id)"
         AF.request(url)
@@ -46,15 +46,15 @@ class CharactersNetworkService: CharactersNetworkProtocol {
 }
 
 class CharactersNetworkServiceAdventureTime: CharactersNetworkProtocol {
-    
+
     private let show: String
-    
+
     init(show: String) {
            self.show = show
        }
-    
+
     func fetchCharacterList(completion: @escaping (Result<[CharacterListItem], Error>) -> Void) {
-        
+
         let adventureTimeCharacters = [
             CharacterListItem(id: 1, name: "Finn The Human", image: "https://i.pinimg.com/474x/68/fa/a7/68faa75d50a73338826f2a2d5d00f346.jpg"),
             CharacterListItem(id: 2, name: "Jake The Dog", image: "https://static1.cbrimages.com/wordpress/wp-content/uploads/2018/08/jake-the-dog-pure-css-adventure-time-wallpaper-by-sangreprimitiva-d5vs51f.jpg"),
@@ -69,7 +69,7 @@ class CharactersNetworkServiceAdventureTime: CharactersNetworkProtocol {
         ]
         completion(.success(adventureTimeCharacters))
     }
-    
+
     func fetchCharacterDetails(id: Int, completion: @escaping (Result<CharacterDetail, Error>) -> Void) {
         let details = [
             1: CharacterDetail(
@@ -213,7 +213,7 @@ class CharactersNetworkServiceAdventureTime: CharactersNetworkProtocol {
                 created: "2025-01-20T12:34:56.789Z"
             )
         ]
-        
+
         if let detail = details[id] {
             completion(.success(detail))
         } else {
