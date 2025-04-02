@@ -24,7 +24,9 @@ class PlayersListViewController: UIViewController, UITableViewDelegate, UITableV
         Player(number: 5, image: UIImage(systemName: "person.fill"), name: "ATF", matches: "29-11", usp: "5.38"),
         Player(number: 6, image: UIImage(systemName: "person.fill"), name: "Payk", matches: "14-17", usp: "5.27"),
         Player(number: 7, image: UIImage(systemName: "person.fill"), name: "Lorenof", matches: "19-12", usp: "5.19"),
-        Player(number: 8, image: UIImage(systemName: "person.fill"), name: "Crystallis", matches: "21-15", usp: "5.17")
+        Player(number: 8, image: UIImage(systemName: "person.fill"), name: "Crystallis", matches: "21-15", usp: "5.17"),
+        Player(number: 9, image: UIImage(systemName: "person.fill"), name: "Crystallis", matches: "21-15", usp: "5.17")
+
     ]
     
     override func viewDidLoad() {
